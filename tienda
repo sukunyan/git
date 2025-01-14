@@ -1,0 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package tienda;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author gabriel.estevez
+ */
+public class Tienda {
+    private String producto;
+    private double kg;
+    private int N_productos;
+    
+    public Tienda(String producto, double kg, int N_productos){
+        this.producto = producto;
+        this.kg = kg;
+        this.N_productos = N_productos;
+    }
+    
+    public String toString() {
+        return "Producto: " + producto + ", Kg: " + kg + ", Cantidad: " + N_productos;
+    }
+    
+    public static void main(String[] args) {
+      ArrayList<Tienda> Productos = new ArrayList<>();
+       Scanner teclado = new Scanner(System.in);
+       int x;
+       
+            System.out.println("cuantos productos quieres añadir-> ");
+            x = teclado.nextInt();
+            teclado.nextLine();
+            
+               //for para añadir la cantidad de proctus deseados
+            for (int i = 1; i <= x; i++) {
+                System.out.println("numero del producto-> " + i);
+                System.out.print("Nombre del producto= ");
+                String producto = teclado.nextLine();
+                System.out.print("Cuantos kg= ");
+                double kg = Double.parseDouble(teclado.nextLine());
+                System.out.print("Cuantas unidades se compro del producto= ");
+                int N_productos = Integer.parseInt(teclado.nextLine());
+                
+                // Crear un objeto Tienda y agregarlo al ArrayList
+                Tienda nuevoProducto = new Tienda(producto, kg, N_productos);
+                Productos.add(nuevoProducto);
+                System.out.println("");
+            }
+
+        // Mostrar los productos
+        for (Tienda producto : Productos) {
+            System.out.println(producto);
+        }
+        
+        
+    }
+    
+}
